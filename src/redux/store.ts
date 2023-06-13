@@ -1,8 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import { typingReducer } from "./reducer/typingTestSlice";
+import { setCharsReducer } from "./reducer/setChars";
+import { setWordsReducer } from './reducer/setWords';
+import { setAccuracyReducer } from './reducer/setAccuracy';
+import { setIsRunningReducer } from './reducer/setIsRunning';
 
 const rootReducer = combineReducers({
-    typingReducer
+    setCharsReducer, setWordsReducer, setAccuracyReducer, setIsRunningReducer
 })
 
 export const setupStore = () => {
