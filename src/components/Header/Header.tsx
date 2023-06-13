@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Header.module.scss'
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import { setIsRunning } from '../../redux/reducer/setIsRunning';
+import { setOpenModal } from '../../redux/reducer/setOpenModal';
 
 export const Header = () => {
     const [seconds, setSeconds] = useState(0);
@@ -23,6 +24,7 @@ export const Header = () => {
             } else {
               clearInterval(interval!);
               dispatch(setIsRunning(false));
+              dispatch(setOpenModal(true));
               return 0;
             }
           });
