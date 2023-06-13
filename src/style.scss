@@ -1,3 +1,11 @@
 p {
     white-space: pre-wrap;
   }
+body{
+    background-image: url(https://res.cloudinary.com/dn1j6dpd7/image/upload/f_auto,q_auto/v1600423784/typing-speed-test/test-bg-left.png),url(https://res.cloudinary.com/dn1j6dpd7/image/upload/f_auto,q_auto/v1600423784/typing-speed-test/test-bg-right.png);
+    background-size: 393px auto;
+    background-position: calc(50% - 650px) 0,calc(50% + 650px) 0;
+    background-repeat: repeat-y;
+    background-color: #f6f6f7;
+    font-family: Colfax,sans-serif;
+}
