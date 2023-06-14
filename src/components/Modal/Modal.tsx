@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import { setOpenModal } from '../../redux/reducer/setOpenModal';
 import { setUpdate } from '../../redux/reducer/setUpdate';
+import { databaseCollection } from '../../api/firebase';
+import { addDoc } from 'firebase/firestore';
 
 export const Modal = () => {
     const [inputValue, setInputValue] = useState('');
@@ -11,18 +13,29 @@ export const Modal = () => {
     const accuracy = useAppSelector(state => state.setAccuracyReducer.accuracy);
     const dispatch = useAppDispatch();
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (inputValue.trim() === '') {
             // Если поле ввода пустое, не выполняем отправку формы
             return;
         }
 
-        // Здесь добавить логику для отправки формы
-        console.log('Форма отправлена');
+        let obj = {
+            name: inputValue.trim(),
+            words: words,
+            chars: chars,
+            accuracy: accuracy
+        };
+        try {
+            await addDoc(databaseCollection, obj);
+            dispatch(setOpenModal(false));
+            dispatch(setUpdate());
+        } catch (err) {
+            console.error(err)
+        }
     };
 
     const handleClose = () => {
-        dispatch(setOpenModal(false))
+        dispatch(setOpenModal(false));
         dispatch(setUpdate());
     };
 
