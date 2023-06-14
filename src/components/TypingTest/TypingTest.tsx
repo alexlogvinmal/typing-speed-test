@@ -17,6 +17,7 @@ export const TypingTest = () => {
     const [goodword, setGoodword] = useState(0);
     const paragraphRef = useRef<HTMLParagraphElement>(null);
     const isRunning = useAppSelector(state => state.setIsRunningReducer.isRunning);
+    const update = useAppSelector(state => state.setUpdateReducer.update);
     const dispatch = useAppDispatch();
 
     useEffect(() => { 
@@ -48,15 +49,15 @@ export const TypingTest = () => {
     }
 
 
-    // useEffect(() => { 
-    //     setConfirmword('')
-    //     setFourthword(dataEng[Math.floor(Math.random() * 76)])
-    //     setThirdword(dataEng[Math.floor(Math.random() * 76)])
-    //     setSecondword(dataEng[Math.floor(Math.random() * 76)])
-    //     setWord(dataEng[Math.floor(Math.random() * 76)])
-    //     setNotword(0)
-    //     setGoodword(0)
-    // }, [isUpdate]);  ////////сделать функцию обновления после закрытия модального окна (использовать redux)
+    useEffect(() => { 
+        setConfirmword('')
+        setFourthword(dataEng[Math.floor(Math.random() * 76)])
+        setThirdword(dataEng[Math.floor(Math.random() * 76)])
+        setSecondword(dataEng[Math.floor(Math.random() * 76)])
+        setWord(dataEng[Math.floor(Math.random() * 76)])
+        setNotword(0)
+        setGoodword(0)
+    }, [update]);  ////////функция обновления после закрытия модального окна (redux)
 
 
 

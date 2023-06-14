@@ -4,9 +4,10 @@ import { setWordsReducer } from './reducer/setWords';
 import { setAccuracyReducer } from './reducer/setAccuracy';
 import { setIsRunningReducer } from './reducer/setIsRunning';
 import { setOpenModalReducer } from './reducer/setOpenModal';
+import { setUpdateReducer } from './reducer/setUpdate';
 
 const rootReducer = combineReducers({
-    setCharsReducer, setWordsReducer, setAccuracyReducer, setIsRunningReducer, setOpenModalReducer
+    setCharsReducer, setWordsReducer, setAccuracyReducer, setIsRunningReducer, setOpenModalReducer, setUpdateReducer
 })
 
 export const setupStore = () => {

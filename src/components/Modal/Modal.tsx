@@ -2,9 +2,13 @@ import styles from './Modal.module.scss'
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hook';
 import { setOpenModal } from '../../redux/reducer/setOpenModal';
+import { setUpdate } from '../../redux/reducer/setUpdate';
 
 export const Modal = () => {
     const [inputValue, setInputValue] = useState('');
+    const words = useAppSelector(state => state.setWordsReducer.words);
+    const chars = useAppSelector(state=> state.setCharsReducer.chars);
+    const accuracy = useAppSelector(state => state.setAccuracyReducer.accuracy);
     const dispatch = useAppDispatch();
 
     const handleSubmit = () => {
@@ -19,6 +23,7 @@ export const Modal = () => {
 
     const handleClose = () => {
         dispatch(setOpenModal(false))
+        dispatch(setUpdate());
     };
 
 
@@ -32,9 +37,9 @@ export const Modal = () => {
                         </div>
                         <div className={styles.popup_text}>
                             <p className={styles.p4}>Nice try!</p>
-                            <span className={styles.span_text}> <p>You type with the speed of <b>0 WPM</b> (0 CPM).</p><p> Your accuracy was <b>0%</b>. It could be better!</p></span>
+                            <span className={styles.span_text}> <p>You type with the speed of <b>{words} WPM</b> ({chars} CPM).</p><p> Your accuracy was <b>{accuracy}%</b>. It could be better!</p></span>
                             <p>Leave your name if you want to compete with other users.</p>
-                            <input type="text" placeholder="Your name.." maxLength={25} required onChange={e => { setInputValue(e.target.value) }} />
+                            <input type="text" className={styles.input_modal} placeholder="Your name.." maxLength={25} required onChange={e => { setInputValue(e.target.value) }} autoFocus/>
                             <div className={styles.for_bttn}>
                                 <button className={styles.btn_blue} onClick={handleClose}>Try again</button>
                                 <button type='submit'className={styles.btn_green} onClick={handleSubmit}>Let's compete!</button>
