@@ -35,7 +35,6 @@ export const TypingTest = () => {
             setGoodword(goodword + 1)
             setWord(word.slice(1))
             if (paragraphRef.current) {
-                console.log(paragraphRef.current.scrollLeft)
                 paragraphRef.current.scrollLeft = paragraphRef.current.scrollWidth;
             }
             if (word.length === 1) {
