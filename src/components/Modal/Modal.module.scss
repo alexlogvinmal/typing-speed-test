@@ -107,3 +107,24 @@ button{
     color: #fff;
     margin: 1rem;
 }
+
+@media (max-width: 800px) {
+    .popup_all {
+      width: 90%;
+      max-width: 30rem;
+      height: auto;
+    }
+
+    .span_text{
+        font-size: 1rem;
+    }
+
+    .p4 {
+      margin-top: 2rem;
+      font-size: 1.25rem;
+    }
+  
+    .input_modal {
+      font-size: 14px;
+    }
+  }

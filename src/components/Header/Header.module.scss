@@ -19,6 +19,7 @@
     margin-top: 0;
 }
 .result_div{
+    //width: 80%;
     display: flex;
     justify-content: center;
     line-height: 1.2;
@@ -50,4 +51,34 @@
     margin: 1rem;
     width: 110px;
     height: 110px;
+}
+
+@media (max-width: 800px) {
+  .main_span {
+    margin-top: 1rem;
+  }
+
+  .p_main_span1 {
+    font-size: 0.7rem;
+  }
+
+  .p_main_span2 {
+    font-size: 2.5rem;
+  }
+  .result_info{
+    margin: 0.6rem;
+  }
+  .result_number {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.2rem;
+  }
+  .result_div{
+    align-items: normal;
+    justify-content: normal;
+  }
+  .result_timer {
+    width: 80px;
+    height: 70px;
+  }
 }

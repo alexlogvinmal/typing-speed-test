@@ -97,6 +97,45 @@
     z-index: 10;
   }
   
-
+  @media (max-width: 800px) {
+    .main_div {
+      font-size: 150%;
+    }
+  
+    .second_div {
+      width: 97vw;
+      height: 80px;
+    }
+  
+    .right_div,
+    .left_div {
+      width: 50%;
+    }
+  
+    .input {
+      height: 32px;
+      font-size: 120%;
+    }
+  
+    .arrow_help {
+      font-size: small;
+      margin-top: 10px;
+      margin-left: 15px;
+  
+      &::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        margin-left: -4px;
+        border-top: 4px solid #337ab7;
+        bottom: -4px;
+      }
+    }
+  
+    .visibility_hidden {
+      font-size: small;
+      margin-top: 10px;
+      margin-left: 15px;
+    }
+  }
 
 

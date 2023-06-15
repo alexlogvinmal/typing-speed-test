@@ -58,3 +58,25 @@
 .table tbody tr:last-child td:last-child {
 	border-radius: 0 0 20px 0;
 }
+
+@media (max-width: 800px) {
+	.leaderboard {
+	  margin-top: 3rem;
+	}
+  
+	.leaderboard_text {
+	  margin-top: 1.5rem;
+	  font-size: 1.8rem;
+	}
+  
+	.table thead th {
+	  font-size: 14px;
+	  padding: 8px 12px;
+	}
+  
+	.table tbody td {
+	  padding: 8px 0px;
+	  font-size: 14px;
+	  height: 2.5rem;
+	}
+  }
