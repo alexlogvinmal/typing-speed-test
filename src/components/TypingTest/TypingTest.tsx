@@ -21,10 +21,10 @@ export const TypingTest = () => {
     const update = useAppSelector(state => state.setUpdateReducer.update);
     const dispatch = useAppDispatch();
 
-    useEffect(() => { 
+    useEffect(() => {
         confirmword === '' ? dispatch(setWords(0)) : dispatch(setWords(confirmword.trim().split(' ').length))
         dispatch(setChars(goodword))
-        dispatch(setAccuracy( Math.floor((goodword / (goodword+notword)) * 100)))
+        dispatch(setAccuracy(Math.floor((goodword / (goodword + notword)) * 100)))
     }, [confirmword, goodword, notword]);
 
     function testFunc(e: any) {
@@ -50,11 +50,11 @@ export const TypingTest = () => {
 
     const handleInputContainerClick = () => {
         if (inputRef.current) {
-          inputRef.current.focus();
+            inputRef.current.focus();
         }
-      };
+    };
 
-    useEffect(() => { 
+    useEffect(() => {
         setConfirmword('')
         setFourthword(dataEng[Math.floor(Math.random() * 76)])
         setThirdword(dataEng[Math.floor(Math.random() * 76)])
@@ -67,18 +67,15 @@ export const TypingTest = () => {
 
 
     return (
-        <>
-            <div className={styles.main_div}>
+        <div className={styles.main_div}>
             <div className={isRunning ? styles.visibility_hidden : styles.arrow_help}>Start typing</div>
-                <div>
-                    <div className={styles.second_div} onClick={handleInputContainerClick}>
-                        <p className={styles.left_div} ref={paragraphRef}>{confirmword}</p>
-                        <input className={styles.input} type='string' tabIndex={0} onInput={e => testFunc(e)} value={''} autoFocus ref={inputRef}/>
-                        <p className={styles.right_div}>{word}{secondword}{thirdword}{fourthword}</p>
-                    </div>
+            <div>
+                <div className={styles.second_div} onClick={handleInputContainerClick}>
+                    <p className={styles.left_div} ref={paragraphRef}>{confirmword}</p>
+                    <input className={styles.input} type='string' tabIndex={0} onInput={e => testFunc(e)} value={''} autoFocus ref={inputRef} />
+                    <p className={styles.right_div}>{word}&nbsp;{secondword}&nbsp;{thirdword}&nbsp;{fourthword}</p>
                 </div>
             </div>
-        </>
-
+        </div>
     )
 }
