@@ -41,10 +41,13 @@
 	border: none;
 	padding: 10px 15px;
 	font-size: 18px;
-	// vertical-align: top;
+	height: 4rem;
 }
 .table tbody tr:nth-child(even) {
 	background: #F8F8F8;
+}
+.table tbody tr:nth-child(odd) {
+	background-color: #ffffff;
 }
 .table tbody tr:last-child td{
 	border-bottom: 1px solid #ddd;
