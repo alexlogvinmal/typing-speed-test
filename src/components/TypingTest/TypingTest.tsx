@@ -16,6 +16,7 @@ export const TypingTest = () => {
     const [notword, setNotword] = useState(0);
     const [goodword, setGoodword] = useState(0);
     const paragraphRef = useRef<HTMLParagraphElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const isRunning = useAppSelector(state => state.setIsRunningReducer.isRunning);
     const update = useAppSelector(state => state.setUpdateReducer.update);
     const dispatch = useAppDispatch();
@@ -48,6 +49,11 @@ export const TypingTest = () => {
         }
     }
 
+    const handleInputContainerClick = () => {
+        if (inputRef.current) {
+          inputRef.current.focus();
+        }
+      };
 
     useEffect(() => { 
         setConfirmword('')
@@ -66,9 +72,9 @@ export const TypingTest = () => {
             <div className={styles.main_div}>
             <div className={isRunning ? styles.visibility_hidden : styles.arrow_help}>Start typing</div>
                 <div>
-                    <div className={styles.second_div}>
+                    <div className={styles.second_div} onClick={handleInputContainerClick}>
                         <p className={styles.left_div} ref={paragraphRef}>{confirmword}</p>
-                        <input className={styles.input} type='string' tabIndex={0} onInput={e => testFunc(e)} value={''} autoFocus />
+                        <input className={styles.input} type='string' tabIndex={0} onInput={e => testFunc(e)} value={''} autoFocus ref={inputRef}/>
                         <p className={styles.right_div}>{word}{secondword}{thirdword}{fourthword}</p>
                     </div>
                 </div>
