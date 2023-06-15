@@ -45,7 +45,7 @@ export const Header = () => {
     }, [seconds]);
   
     const handleClick = () => {
-      setIsRunning(!isRunning);
+      dispatch(setIsRunning(!isRunning));
     };
 
     return (
